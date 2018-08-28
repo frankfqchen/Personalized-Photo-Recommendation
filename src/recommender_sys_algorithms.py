@@ -31,6 +31,7 @@ class RecSys(object):
             'HSVNN': self.hsvnn,
             'RGBNN': self.rgbnn,
             'StyleNN': self.stylenn,
+            'StyleNN2': self.stylenn2,
         }
         return switcher[model_name]
 
@@ -150,10 +151,20 @@ class RecSys(object):
         self.sim_method_r = self._getSimMethod(sim_method_r)
         self.sim_method_p = self._getSimMethod(sim_method_p)
         matrix_train = self.data.matrix_train
-        hsv_vectors = self.data.load_style_matrix()
-        prediction = self.cf_with_item_attributes(matrix_train, hsv_vectors, self.sim_method_r, self.sim_method_p,
+        style_vectors = self.data.load_style_matrix()
+        prediction = self.cf_with_item_attributes(matrix_train, style_vectors, self.sim_method_r, self.sim_method_p,
                                                   alpha, sim_thresh)
         return prediction
+
+    def stylenn2(self, sim_method_r, sim_method_p, id=0):
+        self.sim_method_r = self._getSimMethod(sim_method_r)
+        self.sim_method_p = self._getSimMethod(sim_method_p)
+        matrix_train = self.data.matrix_train
+        style_vectors = self.data.load_style_matrix()
+        sim_r = self.sim_method_r(matrix_train.T)
+        sim_p = self.sim_method_p(style_vectors)
+        np.save('similarity_interactions_' + str(id) + '.npz', sim_r)
+        np.save('similarity_style_' + str(id) + '.npz', sim_p)
 
     def itemAverage(self):
         matrix_train = self.data.matrix_train
