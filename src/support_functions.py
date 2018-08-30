@@ -5,6 +5,7 @@ import cv2
 from PIL import Image
 import requests
 from io import BytesIO
+from glob import glob
 from collections import Counter
 import scipy.sparse as sparse
 from scipy.sparse.linalg import inv
@@ -48,10 +49,10 @@ class SampleData(object):
         return load_sparse_csr(self.sample_path + 'style_vectors.npz')
 
 
-def load_samples(sample_name_list, data_folder='data', task='test'):
+def get_data(data_folder_path, task='test'):
+    sample_folder_lists = glob(data_folder_path + '*/')
     samples = []
-    for sample_name in sample_name_list:
-        sample_data_path = data_folder + '/' + sample_name + '/'
+    for sample_data_path in sample_folder_lists:
         samples.append(SampleData(sample_data_path, task))
     return samples
 
