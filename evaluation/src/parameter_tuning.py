@@ -1,5 +1,5 @@
 from sklearn.model_selection import ParameterGrid
-from src.evaluation import *
+from evaluation.src.evaluation import *
 
 results_save_path = 'results/'
 
