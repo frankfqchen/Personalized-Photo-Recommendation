@@ -1,5 +1,3 @@
-from src.support_functions import *
-
 class Evaluation(object):
     def __init__(self, prediction, testSet, metric, k=10):
         """

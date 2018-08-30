@@ -1,5 +1,4 @@
-from src.parameter_tuning import *
-from src.support_functions import *
+from evaluation.src.parameter_tuning import *
 
 samples = ['sample_data_1', 'sample_data_2', 'sample_data_3', 'sample_data_4']
 sample_data_list = load_samples(samples, data_folder='data')

@@ -1,6 +1,3 @@
-from src.support_functions import *
-
-
 def create_color_histograms(images, output_save_path, color_space_name, n_bins=60):
 
     def preprocess_image(image, color_space_name, n_bins):
