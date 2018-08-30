@@ -89,7 +89,7 @@ if __name__ == '__main__':
     parser.add_argument(
         '--job-name',
         help='The name of the job for saving the result',
-        default='Evaluation'
+        default='evaluation'
     )
 
     args = parser.parse_args()
