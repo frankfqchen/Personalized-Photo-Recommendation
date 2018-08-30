@@ -1,5 +1,6 @@
 from sklearn.model_selection import ParameterGrid
-from evaluation.src.evaluation import *
+from src.recommender_sys_algorithms import *
+from src.evaluation import *
 
 results_save_path = 'results/'
 

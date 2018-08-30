@@ -1,5 +1,8 @@
 import argparse
-from evaluation.src.evaluation import *
+from src.evaluation import *
+from src.recommender_sys_algorithms import *
+from src.support_functions import *
+
 
 metrics = ['P@K','R@K','RPrec','AvgP']
 

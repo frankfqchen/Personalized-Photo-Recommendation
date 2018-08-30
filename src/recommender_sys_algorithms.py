@@ -1,4 +1,5 @@
 from sklearn.metrics.pairwise import pairwise_distances
+from src.support_functions import *
 from scipy import sparse
 from scipy.stats import pearsonr
 
