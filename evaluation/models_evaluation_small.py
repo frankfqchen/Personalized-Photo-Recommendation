@@ -1,5 +1,5 @@
 import argparse
-from evaluation.src.evaluation import *
+from src.evaluation import *
 
 metrics = ['P@K','R@K','RPrec','AvgP']
 eval_models = {
